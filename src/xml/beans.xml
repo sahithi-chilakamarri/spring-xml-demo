@@ -3,29 +3,31 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
     <!-- bean definitions here -->
-    <bean id="vijay" class="com.stackroute.domain.Actors">
-        <property name="name" value="Vijay Devarakonda"></property>
-        <property name="gender" value="Male"></property>
-        <property name="age" value="28"></property>
+
+    <bean id="actor2" class="com.stackroute.domain.Actors">
+        <constructor-arg name="name" value="Sharukh khan" index="0" type="java.lang.String"/>
+        <constructor-arg name="gender" value="Male" index="1" type="java.lang.String"/>
+        <constructor-arg name="age" value="50" index="2" type="int"/>
     </bean>
-    <bean id="geethagovindham" class="com.stackroute.domain.Movie">
-        <property name="actor" ref="vijay"/>
+    <bean id="movie2" class="com.stackroute.domain.Movie">
+        <constructor-arg  ref="actor2"/>
     </bean>
-    <bean id="sharukh" class="com.stackroute.domain.Actors">
-        <property name="name" value="Sharukh khan"></property>
-        <property name="gender" value="Male"></property>
-        <property name="age" value="50"></property>
+    <bean id="actor3" class="com.stackroute.domain.Actors">
+        <constructor-arg name="name" value="Siddharth malhotra" index="0" type="java.lang.String"/>
+        <constructor-arg name="gender" value="Male" index="1" type="java.lang.String"/>
+        <constructor-arg name="age" value="30" index="2" type="int"/>
     </bean>
-    <bean id="kuchkuchhotahain" class="com.stackroute.domain.Movie">
-        <property name="actor" ref="sharukh"/>
+    <bean id="movie3" class="com.stackroute.domain.Movie">
+        <constructor-arg  ref="actor3"/>
     </bean>
-    <bean id="siddharth" class="com.stackroute.domain.Actors">
-        <property name="name" value="Siddharth malhotra"></property>
-        <property name="gender" value="Male"></property>
-        <property name="age" value="30"></property>
+    <bean id="actor4" class="com.stackroute.domain.Actors">
+        <constructor-arg name="name" value="Siddharth malhotra" index="0" type="java.lang.String"/>
+        <constructor-arg name="gender" value="Male" index="1" type="java.lang.String"/>
+        <constructor-arg name="age" value="30" index="2" type="int"/>
     </bean>
-    <bean id="HaseeTohPhasee" class="com.stackroute.domain.Movie">
-        <property name="actor" ref="siddharth"/>
+    <bean name="movie4,movie5" class="com.stackroute.domain.Movie" scope="prototype">
+        <constructor-arg  ref="actor4"/>
     </bean>
 </beans>
