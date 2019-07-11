@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- bean definitions here -->
+    <bean id="vijay" class="com.stackroute.domain.Actors">
+        <property name="name" value="Vijay Devarakonda"></property>
+        <property name="gender" value="Male"></property>
+        <property name="age" value="28"></property>
+    </bean>
+    <bean id="geethagovindham" class="com.stackroute.domain.Movie">
+        <property name="actor" ref="vijay"/>
+    </bean>
+    <bean id="sharukh" class="com.stackroute.domain.Actors">
+        <property name="name" value="Sharukh khan"></property>
+        <property name="gender" value="Male"></property>
+        <property name="age" value="50"></property>
+    </bean>
+    <bean id="kuchkuchhotahain" class="com.stackroute.domain.Movie">
+        <property name="actor" ref="sharukh"/>
+    </bean>
+    <bean id="siddharth" class="com.stackroute.domain.Actors">
+        <property name="name" value="Siddharth malhotra"></property>
+        <property name="gender" value="Male"></property>
+        <property name="age" value="30"></property>
+    </bean>
+    <bean id="HaseeTohPhasee" class="com.stackroute.domain.Movie">
+        <property name="actor" ref="siddharth"/>
+    </bean>
+</beans>
