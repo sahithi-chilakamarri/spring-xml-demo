@@ -28,4 +28,6 @@
     <bean id="HaseeTohPhasee" class="com.stackroute.domain.Movie">
         <property name="actor" ref="siddharth"/>
     </bean>
+
 </beans>
+
