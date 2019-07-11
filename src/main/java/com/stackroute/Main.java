@@ -15,14 +15,15 @@ import org.springframework.core.io.Resource;
 
 public class Main {
     public static void main(String[] args) {
+        //Dependency injection using Application Context
         ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
         System.out.println("Config file loaded");
         Movie movie1= context.getBean("geethagovindham", Movie.class);
         System.out.println("Created dependencies using application context");
         movie1.display();
         System.out.println(".........");
-
-
+        
+        //Dependency Injection using Bean Factory
         Resource resource = new ClassPathResource("beans.xml");
         BeanFactory beanFactory = new XmlBeanFactory(resource);
         Movie movie2 = context.getBean("kuchkuchhotahain", Movie.class);
@@ -30,7 +31,7 @@ public class Main {
         movie2.display();
         System.out.println(".........");
 
-
+        //Dependency Injection using BeanDefinitionRegistry and BeanDefinitionReader.
         BeanDefinitionRegistry beanDefinitionRegistry = new GenericApplicationContext((DefaultListableBeanFactory) beanFactory);
         BeanDefinitionReader beanDefinitionReader = new XmlBeanDefinitionReader(beanDefinitionRegistry);
         beanDefinitionReader.loadBeanDefinitions("beans.xml");
