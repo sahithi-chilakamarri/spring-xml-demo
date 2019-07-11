@@ -15,6 +15,7 @@ import org.springframework.core.io.Resource;
 
 public class Main {
     public static void main(String[] args) {
+        //dependencies using application format
         ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
         System.out.println("Config file loaded");
         Movie movie1= context.getBean("geethagovindham", Movie.class);
@@ -22,7 +23,7 @@ public class Main {
         movie1.display();
         System.out.println(".........");
 
-
+        //dependencies using beanfactory
         Resource resource = new ClassPathResource("beans.xml");
         BeanFactory beanFactory = new XmlBeanFactory(resource);
         Movie movie2 = context.getBean("kuchkuchhotahain", Movie.class);
@@ -30,7 +31,7 @@ public class Main {
         movie2.display();
         System.out.println(".........");
 
-
+        //dependencies using BeanDefinitionRegistry and BeanDefinitionReader
         BeanDefinitionRegistry beanDefinitionRegistry = new GenericApplicationContext((DefaultListableBeanFactory) beanFactory);
         BeanDefinitionReader beanDefinitionReader = new XmlBeanDefinitionReader(beanDefinitionRegistry);
         beanDefinitionReader.loadBeanDefinitions("beans.xml");
