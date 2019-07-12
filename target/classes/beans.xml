@@ -14,6 +14,10 @@
         <constructor-arg name="age" value="35">
         </constructor-arg>
     </bean>
-    <bean id="movie" class="com.stackroute.domain.Movie" autowire="byName">
+    <bean id="movie" class="com.stackroute.domain.Movie">
+        <constructor-arg ref="actor">
+        </constructor-arg>
         </bean>
+    <bean id="beanlifecycle" class="com.stackroute.demo.BeanLifeCycleDemoBean" init-method="customInit" destroy-method="customDestroy" >
+    </bean>
 </beans>
