@@ -7,11 +7,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Main {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
-        //Object injected using  byName
+      //Implementing the interfaces ApplicationContextAware,BeanFactoryAware,BeanNameAware
         Movie movie=context.getBean("movie",Movie.class);
         movie.display();
-        //Object injected using constructor-injection
-        Movie movie1=context.getBean("movie1",Movie.class);
-        movie1.display();
     }
 }
